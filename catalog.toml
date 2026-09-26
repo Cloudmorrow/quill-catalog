@@ -1,0 +1,39 @@
+# The Quill Catalog: every published Quill, where it lives, and the release
+# a Cloudmorrow server installs. A server reads this file; a pull request adds
+# to it. See https://github.com/Cloudmorrow/cloudmorrow/blob/main/docs/QUILLS.md
+
+# The foundational datamodels, and the release of them Quills are checked against.
+[datamodels]
+repo = "https://github.com/Cloudmorrow/datamodels"
+ref = "v1.0.0"
+
+[[categories]]
+id = "personal"
+label = "Personal"
+description = "Your own lists, plans and notes."
+
+[[categories]]
+id = "home"
+label = "Home"
+description = "The household: shopping, chores, the car, the plants."
+
+[[categories]]
+id = "business"
+label = "Business"
+description = "Customers, projects, fleets and the work around them."
+
+[[categories]]
+id = "developer"
+label = "Developer"
+description = "For people who build things: machines, secrets, pipelines."
+
+[[quills]]
+id = "tasks"
+name = "Tasks"
+summary = "Boards with three lanes: To Do, Doing, Done."
+repo = "https://github.com/Cloudmorrow/quill-tasks"
+ref = "v1.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
