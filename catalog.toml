@@ -5,7 +5,7 @@
 # The foundational datamodels, and the release of them Quills are checked against.
 [datamodels]
 repo = "https://github.com/Cloudmorrow/datamodels"
-ref = "v1.0.0"
+ref = "v1.2.0"
 
 [[categories]]
 id = "personal"
@@ -28,12 +28,67 @@ label = "Developer"
 description = "For people who build things: machines, secrets, pipelines."
 
 [[quills]]
+id = "notes"
+name = "Notes"
+summary = "Markdown notes in folders, with pictures."
+repo = "https://github.com/Cloudmorrow/quill-notes"
+ref = "v1.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
+
+[[quills]]
 id = "tasks"
 name = "Tasks"
 summary = "Boards with three lanes: To Do, Doing, Done."
 repo = "https://github.com/Cloudmorrow/quill-tasks"
 ref = "v1.1.0"
 category = "personal"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
+
+[[quills]]
+id = "files"
+name = "Files"
+summary = "Your own drive on the server, your fileshares, and what is in them."
+repo = "https://github.com/Cloudmorrow/quill-files"
+ref = "v1.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
+
+[[quills]]
+id = "calendar"
+name = "Calendar"
+summary = "Your own calendar, the ones you share, and one for everybody."
+repo = "https://github.com/Cloudmorrow/quill-calendar"
+ref = "v1.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
+
+[[quills]]
+id = "chat"
+name = "Chat"
+summary = "Channels, direct messages, and the count on the icon."
+repo = "https://github.com/Cloudmorrow/quill-chat"
+ref = "v1.0.0"
+category = "home"
+publisher = "Cloudmorrow"
+# Offered, and ticked, on a fresh server.
+foundation = true
+
+[[quills]]
+id = "secrets"
+name = "Secrets"
+summary = "Keys and passwords in vaults and environments, sealed, and never shown until you ask."
+repo = "https://github.com/Cloudmorrow/quill-secrets"
+ref = "v1.0.0"
+category = "developer"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
 foundation = true
