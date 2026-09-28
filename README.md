@@ -8,7 +8,8 @@ add, and installs a Quill as the tarball of the release pinned here.
 ## Adding your Quill
 
 1. Build it — start from [`quill-template`](https://github.com/Cloudmorrow/quill-template).
-2. Make sure `cm quill check` passes, and tag a release (`v1.0.0`).
+2. Make sure `cm quill check`, `cm quill test` and `cm quill test --sandbox`
+   pass, and tag a release (`v1.0.0`).
 3. Open a pull request adding it here:
 
 ```toml

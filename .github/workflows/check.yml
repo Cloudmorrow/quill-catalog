@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install "cloudmorrow @ git+https://github.com/Cloudmorrow/cloudmorrow"
+      - run: pip install "cloudmorrow[server] @ git+https://github.com/Cloudmorrow/cloudmorrow"
       - name: check
         run: |
           python - <<'PY'
