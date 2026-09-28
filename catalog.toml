@@ -43,7 +43,7 @@ id = "tasks"
 name = "Tasks"
 summary = "Boards with three lanes: To Do, Doing, Done."
 repo = "https://github.com/Cloudmorrow/quill-tasks"
-ref = "v1.3.0"
+ref = "v1.2.0"
 category = "personal"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
