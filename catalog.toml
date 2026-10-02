@@ -5,7 +5,7 @@
 # The foundational datamodels, and the release of them Quills are checked against.
 [datamodels]
 repo = "https://github.com/Cloudmorrow/datamodels"
-ref = "v1.2.0"
+ref = "v1.3.0"
 
 [[categories]]
 id = "personal"
@@ -92,3 +92,12 @@ category = "developer"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
 foundation = true
+
+[[quills]]
+id = "crm"
+name = "CRM"
+summary = "Customers for a company: organisations, people, a pipeline of deals, and what to do next."
+repo = "https://github.com/Cloudmorrow/quill-crm"
+ref = "v1.0.0"
+category = "business"
+publisher = "Cloudmorrow"
