@@ -5,7 +5,7 @@
 # The foundational datamodels, and the release of them Quills are checked against.
 [datamodels]
 repo = "https://github.com/Cloudmorrow/datamodels"
-ref = "v1.3.0"
+ref = "v1.4.0"
 
 [[categories]]
 id = "personal"
@@ -30,9 +30,9 @@ description = "For people who build things: machines, secrets, pipelines."
 [[quills]]
 id = "notes"
 name = "Notes"
-summary = "Markdown notes in folders, with pictures."
+summary = "Markdown notes in folders, with pictures: plain files in the Notes folder of your drive."
 repo = "https://github.com/Cloudmorrow/quill-notes"
-ref = "v1.1.0"
+ref = "v2.0.0"
 category = "personal"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
