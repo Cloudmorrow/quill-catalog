@@ -32,7 +32,7 @@ id = "notes"
 name = "Notes"
 summary = "Markdown notes in folders, with pictures."
 repo = "https://github.com/Cloudmorrow/quill-notes"
-ref = "v1.1.0"
+ref = "v1.2.0"
 category = "personal"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
