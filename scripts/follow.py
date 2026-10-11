@@ -465,6 +465,7 @@ def main() -> int:
                     say(f"- {names.get(what, what)} {where} is not taken: {why}")
 
         # 4. Everyone else's: a pull request each, with the check and the install sheet.
+        base = git("rev-parse", "HEAD") if not args.dry_run else ""
         for entry, tag in others:
             quill_id, repo, pinned = entry["id"], entry["repo"], entry["ref"]
             branch = f"release/{quill_id}-{tag.lstrip('v')}"
@@ -489,13 +490,13 @@ def main() -> int:
             body += ["---", "Opened by the releases workflow. Merging takes the release into the catalog; closing "
                      "turns it down, and the workflow does not open it again."]
             if not args.dry_run:
-                git("checkout", "-q", "-B", branch, "main")
+                git("checkout", "-q", "-B", branch, base)
             try:
                 commit(path, new, title, f"{repo}: {pinned} → {tag}", args.dry_run)
                 url = open_pull_request(branch, title, "\n".join(body), args.dry_run)
             finally:
                 if not args.dry_run:
-                    git("checkout", "-q", "main")
+                    git("checkout", "-q", "--detach", base)
             say(f"- {title}: pull request {url}" + (" (the check fails; see its body)" if bad else ""))
     return finish(report)
 
