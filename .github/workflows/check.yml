@@ -7,10 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install "cloudmorrow[server] @ git+https://github.com/Cloudmorrow/cloudmorrow"
+      - run: pip install pytest "cloudmorrow[server] @ git+https://github.com/Cloudmorrow/cloudmorrow"
+      - run: python -m pytest -q tests
       - name: check
         run: |
           python - <<'PY'
@@ -32,3 +35,8 @@ jobs:
                   assert plan["id"] == entry["id"], f"{entry['repo']} is {plan['id']}, not {entry['id']}"
                   print(f"✓ {entry['id']} {plan['version']}")
           PY
+      # A pull request somebody opened: the review's rules on every release it
+      # changes, and what to look closely at for the person reviewing it.
+      - name: review
+        if: github.event_name == 'pull_request'
+        run: python scripts/review.py --base "origin/${{ github.base_ref }}"
