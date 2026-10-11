@@ -49,6 +49,29 @@ proposed again; the next release is.
 Until the pull request is merged, servers keep installing the release the
 catalog pins.
 
+## The review
+
+Every release of a Quill that is not Cloudmorrow's is reviewed before the
+catalog takes it, the first and every one after. Part of it is rules the
+workflow applies to every pull request, whoever opened it; a release that
+breaks one is turned down with the reason, and the next release is looked
+at afresh:
+
+- the release is a tag `vMAJOR.MINOR.PATCH`, the same as `version` in
+  `quill.toml`, and newer than the one the catalog pins;
+- its licence is open source (AGPL, GPL, LGPL, MIT, Apache, BSD, MPL, ISC,
+  EUPL, Unlicense or CC0);
+- the publisher and the repository are the ones the catalog has; a Quill
+  that changes hands or moves is a pull request from its new publisher that
+  says so;
+- the check passes: every Quill at its pin, against the pinned datamodels.
+
+The rest is a person reading the Quill at that release — what it adds,
+what it reaches, what code it runs — helped by the pull request's list of
+what changed in the ways that matter: code where there was none, a new
+service, webhook or API, a host it reaches, a secret it reads, a datamodel
+it adds or extends. What is turned down there gets a word on why.
+
 ## Cloudmorrow's own Quills
 
 A Quill whose repository is `github.com/Cloudmorrow/quill-*` is ours, and

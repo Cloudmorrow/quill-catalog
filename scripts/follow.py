@@ -16,10 +16,12 @@ Quill and differs only in the last step:
    The datamodels are bumped only when every Quill still checks out against
    the new release; otherwise the pin stays and the run names the Quill
    that breaks.
-4. Everyone else's listed Quills: a pull request, with the check result and
-   the install sheet in its body. One of us merges it, or closes it; a
-   closed one is not opened again, and a pull request somebody opened
-   themselves for the same release counts as this one.
+4. Everyone else's listed Quills: a pull request, with the check result,
+   the review (policy.py: the rules, and what to look closely at) and the
+   install sheet in its body. A release that breaks a rule is turned down
+   there and then. One of us merges the rest, or closes it; a closed one is
+   not opened again, and a pull request somebody opened themselves for the
+   same release counts as this one.
 
 This script is the only writer of catalog.toml's refs. The foundation flag
 and the categories are product decisions, and stay hand edits: it changes
@@ -41,17 +43,19 @@ import re
 import subprocess
 import sys
 import tempfile
-import tomllib
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import policy
+import tomllib
+
 ORG = "Cloudmorrow"
 TEMPLATE = "quill-template"
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", f"{ORG}/quill-catalog")
 DATAMODELS = f"https://github.com/{ORG}/datamodels"
-OURS = re.compile(rf"^https://github\.com/{ORG}/", re.I)
+OURS = re.compile(rf"^https://github\.com/{ORG}/", re.IGNORECASE)
 GITHUB = re.compile(r"^https://github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?/?$")
 VERSION = re.compile(r"^v?(\d+)\.(\d+)\.(\d+)$")
 BOT = ("github-actions[bot]", "41898282+github-actions[bot]@users.noreply.github.com")
@@ -64,7 +68,7 @@ def _request(url: str, accept: str = "application/vnd.github+json") -> bytes | N
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as response:  # noqa: S310
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as response:
             return response.read()
     except urllib.error.HTTPError as exc:
         if exc.code == 404:
@@ -269,7 +273,7 @@ def compare_url(repo: str, before: str, after: str) -> str:
 
 # -- git and pull requests ----------------------------------------------------------------
 def git(*args: str, check: bool = True) -> str:
-    return subprocess.run(["git", *args], check=check, capture_output=True, text=True).stdout.strip()  # noqa: S603, S607
+    return subprocess.run(["git", *args], check=check, capture_output=True, text=True).stdout.strip()
 
 
 def commit(path: Path, text: str, title: str, body: str, dry: bool) -> None:
@@ -312,11 +316,18 @@ def open_pull_request(branch: str, title: str, body: str, dry: bool) -> str:
     git("push", "-f", "-q", "origin", f"HEAD:refs/heads/{branch}")
     with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False) as handle:
         handle.write(body)
-    out = subprocess.run(  # noqa: S603, S607
+    out = subprocess.run(
         ["gh", "pr", "create", "--base", "main", "--head", branch, "--title", title, "--body-file", handle.name],
         check=True, capture_output=True, text=True,
     ).stdout.strip()
     return out
+
+
+def close_pull_request(url: str, comment: str, dry: bool) -> None:
+    if dry:
+        print(f"\n--- would close it: {comment}")
+        return
+    subprocess.run(["gh", "pr", "close", url, "--comment", comment], check=True, capture_output=True, text=True)
 
 
 # -- the run -------------------------------------------------------------------------------
@@ -326,12 +337,12 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="say what would be done; commit and open nothing")
     parser.add_argument("--ours", default=OURS.pattern, help="the repositories committed without review (a regex)")
     args = parser.parse_args()
-    ours = re.compile(args.ours, re.I)
+    ours = re.compile(args.ours, re.IGNORECASE)
     path: Path = args.catalog
     text = path.read_text(encoding="utf-8")
     data = tomllib.loads(text)
     report: list[str] = []
-    say = lambda line: (print(line), report.append(line))  # noqa: E731
+    say = lambda line: (print(line), report.append(line))
 
     ids = {e["id"]: e for e in data.get("quills", [])}
     by_repo = {e["repo"].rstrip("/").removesuffix(".git").lower(): e for e in data.get("quills", [])}
@@ -466,6 +477,7 @@ def main() -> int:
 
         # 4. Everyone else's: a pull request each, with the check and the install sheet.
         base = git("rev-parse", "HEAD") if not args.dry_run else ""
+        pinned_plans = checker.run(data) if others else {}
         for entry, tag in others:
             quill_id, repo, pinned = entry["id"], entry["repo"], entry["ref"]
             branch = f"release/{quill_id}-{tag.lstrip('v')}"
@@ -485,8 +497,10 @@ def main() -> int:
             else:
                 body += ["**✓ Every Quill checks out** at its pin against the pinned datamodels, this one at "
                          f"{tag}.", ""]
+            refused: list[str] = []
             if mine.get("plan"):
-                body += ["## The install sheet", "", sheet(mine["plan"])]
+                refused, look = policy.review((pinned_plans.get(quill_id) or {}).get("plan"), mine["plan"], tag, listed=True)
+                body += [policy.said(refused, look), "## The install sheet", "", sheet(mine["plan"])]
             body += ["---", "Opened by the releases workflow. Merging takes the release into the catalog; closing "
                      "turns it down, and the workflow does not open it again."]
             if not args.dry_run:
@@ -494,10 +508,19 @@ def main() -> int:
             try:
                 commit(path, new, title, f"{repo}: {pinned} → {tag}", args.dry_run)
                 url = open_pull_request(branch, title, "\n".join(body), args.dry_run)
+                if refused:
+                    # Turned down by the rules: closed at once, with the reasons where the
+                    # author reads them, and never opened again for this release.
+                    close_pull_request(url, "Turned down by the review's rules: " + "; ".join(refused) + ".", args.dry_run)
             finally:
                 if not args.dry_run:
                     git("checkout", "-q", "--detach", base)
-            say(f"- {title}: pull request {url}" + (" (the check fails; see its body)" if bad else ""))
+            said = f"- {title}: pull request {url}"
+            if refused:
+                said += " — turned down: " + "; ".join(refused)
+            elif bad:
+                said += " (the check fails; see its body)"
+            say(said)
     return finish(report)
 
 
