@@ -1,0 +1,4 @@
+# Every pull request that is not the workflow's own commit asks us for a
+# review. Our team is the Cloudmorrow GitHub organisation; when it has a
+# team, this line becomes `* @Cloudmorrow/<team>`.
+* @jimmibram

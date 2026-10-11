@@ -1,0 +1,41 @@
+# The catalog follows the releases: every fifteen minutes, and on demand
+# (Run workflow), scripts/follow.py finds the newest release of every
+# Cloudmorrow Quill, of the datamodels and of every other Quill listed here,
+# checks the catalog as it should be, and then
+#
+#   - commits Cloudmorrow's Quills and the datamodels to main, and
+#   - opens a pull request for everyone else's, with the check result and
+#     the install sheet in its body, for one of us to merge or close.
+#
+# It is the only writer of catalog.toml's refs. A commit pushed with the
+# workflow's own token starts no other workflow, so the check runs in here.
+name: releases
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only say what would be done; commit and open nothing"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: releases
+  cancel-in-progress: false
+jobs:
+  follow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q "cloudmorrow[server] @ git+https://github.com/Cloudmorrow/cloudmorrow"
+      - run: python scripts/follow.py ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
