@@ -72,12 +72,12 @@ publisher = "Cloudmorrow"
 foundation = true
 
 [[quills]]
-id = "chat"
-name = "Chat"
-summary = "Channels, direct messages, and the count on the icon."
-repo = "https://github.com/Cloudmorrow/quill-chat"
-ref = "v1.0.1"
-category = "home"
+id = "channels"
+name = "Channels"
+summary = "Channels, threads, mentions and reactions: a team's conversations, on your own server."
+repo = "https://github.com/Cloudmorrow/quill-channels"
+ref = "v1.0.0"
+category = "business"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
 foundation = true
