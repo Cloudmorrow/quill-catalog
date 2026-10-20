@@ -7,6 +7,35 @@
 repo = "https://github.com/Cloudmorrow/datamodels"
 ref = "v1.8.0"
 
+# Runtimes: programs a Quill's services may require (`[requires] runtimes`).
+# A server fetches the build for its own OS and architecture at install,
+# refuses it when the SHA-256 differs, and keeps it for its Quills; nothing
+# is installed on the system itself. Hand edits, like the categories: a new
+# build is a pull request pinning a release somebody has checked.
+[runtimes.ffmpeg]
+label = "ffmpeg"
+summary = "Reads, writes and converts video and sound."
+version = "7.1.5"
+license = "GPL-3.0-or-later"
+homepage = "https://ffmpeg.org"
+
+# Static builds by BtbN (https://github.com/BtbN/FFmpeg-Builds), release 7.1 line.
+[[runtimes.ffmpeg.builds]]
+os = "linux"
+arch = "x86_64"
+url = "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-07-31-14-10/ffmpeg-n7.1.5-12-g1fdbca85aa-linux64-gpl-7.1.tar.xz"
+sha256 = "c1e6caf48923dd8e6bc5e54d51ba70c321175b8162ae9c414c392990e72f0e79"
+size = 119007364
+programs = ["ffmpeg", "ffprobe"]
+
+[[runtimes.ffmpeg.builds]]
+os = "linux"
+arch = "aarch64"
+url = "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-07-31-14-10/ffmpeg-n7.1.5-12-g1fdbca85aa-linuxarm64-gpl-7.1.tar.xz"
+sha256 = "a9a50c5782ef5e45306d58d1a9a819015b472d8da30ab6a77f15f571c861a71b"
+size = 101894512
+programs = ["ffmpeg", "ffprobe"]
+
 [[categories]]
 id = "personal"
 label = "Personal"

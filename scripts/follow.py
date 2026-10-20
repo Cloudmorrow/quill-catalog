@@ -179,10 +179,18 @@ class Checker:
         return found
 
     def run(self, data: dict) -> dict[str, dict]:
-        from cloudmorrow.server.quills import QuillRegistry
+        from cloudmorrow.server.quills import QuillRegistry, parse_catalog
 
         results: dict[str, dict] = {}
         categories = {c.get("id") for c in data.get("categories", [])}
+        try:
+            # The catalog as it should be, parsed as a server would: its
+            # [runtimes] are checked here, and a Quill requiring one the
+            # catalog lacks is refused below, as a server would refuse it.
+            catalog = parse_catalog(data)
+        except Exception as exc:
+            return {e["id"]: {"ok": False, "error": f"the catalog does not parse: {exc}"}
+                    for e in data.get("quills", [])}
         try:
             models = self.folder(data["datamodels"]["repo"], data["datamodels"]["ref"])
         except Exception as exc:
@@ -198,7 +206,11 @@ class Checker:
                 folder = self.folder(entry["repo"], entry["ref"])
                 self.count += 1
                 registry = QuillRegistry(self.tmp / f"reg-{self.count}" / "quills", self.tmp / f"reg-{self.count}" / "models")
-                plan = registry.plan(folder, models)
+                try:
+                    plan = registry.plan(folder, models, catalog=catalog)
+                except TypeError:
+                    # A server package from before runtimes: planned without them.
+                    plan = registry.plan(folder, models)
                 if plan["id"] != quill_id:
                     raise ValueError(f"{entry['repo']} is {plan['id']}, not {quill_id}")
                 results[quill_id] = {"ok": True, "version": plan["version"], "plan": plan}
