@@ -27,6 +27,8 @@ def test_a_good_update_is_not_refused_and_names_what_changed():
     assert any("api.example.com" in item for item in look)
     assert any("introduces datamodels: plant" in item for item in look)
     assert any("foundational datamodels: contact" in item for item in look)
+    _, look = policy.review(before, plan(requires={"runtimes": ["ffmpeg"]}), "v1.1.0")
+    assert any("adds programs to the server (runtimes): ffmpeg" in item for item in look)
 
 
 def test_a_new_quill_is_read_whole():

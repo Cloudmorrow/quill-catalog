@@ -51,6 +51,10 @@ def _extended(plan: dict) -> set[str]:
     return {str(r.get("id", "")) for r in plan.get("data", []) if isinstance(r, dict) and r.get("how") == "extends"}
 
 
+def _runtimes(plan: dict) -> set[str]:
+    return set((plan.get("requires") or {}).get("runtimes") or [])
+
+
 def _introduced(plan: dict) -> set[str]:
     return {str(r.get("id", "")) for r in plan.get("data", []) if isinstance(r, dict) and r.get("how") == "introduces"}
 
@@ -97,6 +101,9 @@ def review(before: dict | None, after: dict, tag: str, *, listed: bool | None = 
             look.append(f"new {what}: {', '.join(sorted(new))}")
     if set(after.get("runs_code") or []) - set(old.get("runs_code") or []):
         look.append("it runs code on the server itself: " + "; ".join(after.get("runs_code") or []))
+    runtimes = _runtimes(after) - _runtimes(old)
+    if runtimes:
+        look.append("it adds programs to the server (runtimes): " + ", ".join(sorted(runtimes)))
     hosts = _hosts(after) - _hosts(old)
     if hosts:
         look.append("it reaches hosts it did not before: " + ", ".join(sorted(hosts)))
