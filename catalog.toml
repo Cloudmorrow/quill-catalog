@@ -130,3 +130,12 @@ repo = "https://github.com/Cloudmorrow/quill-crm"
 ref = "v1.0.0"
 category = "business"
 publisher = "Cloudmorrow"
+
+[[quills]]
+id = "cutmorrow"
+name = "CutMorrow"
+summary = "A video editor for the videos in your drive: cut, trim and arrange clips on video and audio tracks, blur what should not be seen, crop, and export."
+repo = "https://github.com/Cloudmorrow/quill-vidmorrow"
+ref = "v3.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
