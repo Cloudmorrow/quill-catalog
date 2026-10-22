@@ -139,3 +139,12 @@ repo = "https://github.com/Cloudmorrow/quill-cutmorrow"
 ref = "v3.0.0"
 category = "personal"
 publisher = "Cloudmorrow"
+
+[[quills]]
+id = "media"
+name = "Media"
+summary = "Every photo and video in your drive, as pictures: filter them and give them stars."
+repo = "https://github.com/Cloudmorrow/quill-media"
+ref = "v1.0.0"
+category = "personal"
+publisher = "Cloudmorrow"
