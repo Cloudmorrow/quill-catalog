@@ -5,7 +5,7 @@
 # The foundational datamodels, and the release of them Quills are checked against.
 [datamodels]
 repo = "https://github.com/Cloudmorrow/datamodels"
-ref = "v1.9.0"
+ref = "v1.10.0"
 
 # Runtimes: programs a Quill's services may require (`[requires] runtimes`).
 # A server fetches the build for its own OS and architecture at install,
@@ -83,7 +83,7 @@ id = "files"
 name = "Files"
 summary = "Your own drive on the server, your fileshares, and what is in them."
 repo = "https://github.com/Cloudmorrow/quill-files"
-ref = "v1.0.2"
+ref = "v1.1.0"
 category = "personal"
 publisher = "Cloudmorrow"
 # Offered, and ticked, on a fresh server.
