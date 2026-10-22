@@ -136,7 +136,7 @@ id = "cutmorrow"
 name = "CutMorrow"
 summary = "A video editor for the videos in your drive: cut, trim and arrange clips on video and audio tracks, blur what should not be seen, crop, and export."
 repo = "https://github.com/Cloudmorrow/quill-cutmorrow"
-ref = "v3.0.0"
+ref = "v3.1.0"
 category = "personal"
 publisher = "Cloudmorrow"
 
