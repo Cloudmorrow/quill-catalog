@@ -5,7 +5,7 @@
 # The foundational datamodels, and the release of them Quills are checked against.
 [datamodels]
 repo = "https://github.com/Cloudmorrow/datamodels"
-ref = "v1.10.0"
+ref = "v1.11.0"
 
 # Runtimes: programs a Quill's services may require (`[requires] runtimes`).
 # A server fetches the build for its own OS and architecture at install,
@@ -156,4 +156,13 @@ summary = "Your software projects: the repository, notes, a board, and the .env 
 repo = "https://github.com/Cloudmorrow/quill-devproject"
 ref = "v1.0.0"
 category = "developer"
+publisher = "Cloudmorrow"
+
+[[quills]]
+id = "cells"
+name = "Cells"
+summary = "Small spreadsheets: cells, numbers and formulas, worked out the same on the phone, the web, the terminal and the command line."
+repo = "https://github.com/Cloudmorrow/quill-cells"
+ref = "v1.0.0"
+category = "business"
 publisher = "Cloudmorrow"
