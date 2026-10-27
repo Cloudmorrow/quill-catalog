@@ -25,7 +25,8 @@ Quill and differs only in the last step:
 
 This script is the only writer of catalog.toml's refs. The foundation flag
 and the categories are product decisions, and stay hand edits: it changes
-`ref` lines and appends blocks, and touches nothing else in the file.
+`ref` lines and appends blocks (with `standard = true` on a Quill of our
+own, so the installer offers it), and touches nothing else in the file.
 
     python scripts/follow.py --dry-run     # says what it would do, changes nothing
     python scripts/follow.py               # in Actions, with GH_TOKEN set
@@ -151,6 +152,10 @@ def set_ref(text: str, where: str, ref: str) -> str:
 def add_quill(text: str, entry: dict) -> str:
     block = ["", "[[quills]]"] + [f"{key} = {json.dumps(entry[key], ensure_ascii=False)}" for key in
                                   ("id", "name", "summary", "repo", "ref", "category", "publisher")]
+    # One of our own is a standard Quill: the installer offers it, unticked.
+    # Ticking it to begin with (foundation = true) stays a hand edit.
+    if entry["publisher"] == ORG:
+        block += ["# Offered by the installer and the setup page.", "standard = true"]
     return text.rstrip("\n") + "\n" + "\n".join(block) + "\n"
 
 

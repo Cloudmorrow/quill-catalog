@@ -85,8 +85,13 @@ new release; otherwise the pin stays and the run names the Quill that
 breaks.
 
 Nobody edits refs by hand any more: [`scripts/follow.py`](scripts/follow.py)
-is the only writer of them. The `foundation` flag and the categories are
-product decisions, and stay hand edits.
+is the only writer of them. `standard = true` puts a Quill in the
+installer's and the setup page's list; the script writes it on every Quill
+of Cloudmorrow's own. `foundation = true` ticks it there to begin with
+(Files, Calendar, Notes and Tasks), which is also what a server nobody
+asked gets at first boot; that flag and the categories are product
+decisions, and stay hand edits. Everything else is added from
+Administration once the server runs.
 
 ## Categories
 
