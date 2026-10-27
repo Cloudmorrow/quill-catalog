@@ -118,7 +118,7 @@ id = "channels"
 name = "Channels"
 summary = "Channels, threads, mentions and reactions: a team's conversations, on your own server."
 repo = "https://github.com/Cloudmorrow/quill-channels"
-ref = "v1.0.2"
+ref = "v1.0.3"
 category = "business"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
