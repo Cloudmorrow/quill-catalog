@@ -69,7 +69,9 @@ repo = "https://github.com/Cloudmorrow/quill-notes"
 ref = "v2.0.1"
 category = "personal"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
+# Offered by the installer and the setup page.
+standard = true
+# Ticked to begin with, and what a server nobody asked gets.
 foundation = true
 
 [[quills]]
@@ -80,7 +82,9 @@ repo = "https://github.com/Cloudmorrow/quill-tasks"
 ref = "v1.2.2"
 category = "productivity"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
+# Offered by the installer and the setup page.
+standard = true
+# Ticked to begin with, and what a server nobody asked gets.
 foundation = true
 
 [[quills]]
@@ -91,7 +95,9 @@ repo = "https://github.com/Cloudmorrow/quill-files"
 ref = "v1.2.0"
 category = "personal"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
+# Offered by the installer and the setup page.
+standard = true
+# Ticked to begin with, and what a server nobody asked gets.
 foundation = true
 
 [[quills]]
@@ -102,7 +108,9 @@ repo = "https://github.com/Cloudmorrow/quill-calendar"
 ref = "v1.1.2"
 category = "productivity"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
+# Offered by the installer and the setup page.
+standard = true
+# Ticked to begin with, and what a server nobody asked gets.
 foundation = true
 
 [[quills]]
@@ -113,8 +121,8 @@ repo = "https://github.com/Cloudmorrow/quill-channels"
 ref = "v1.0.2"
 category = "business"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
-foundation = true
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "secrets"
@@ -124,8 +132,8 @@ repo = "https://github.com/Cloudmorrow/quill-secrets"
 ref = "v1.1.0"
 category = "developer"
 publisher = "Cloudmorrow"
-# Offered, and ticked, on a fresh server.
-foundation = true
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "crm"
@@ -135,6 +143,8 @@ repo = "https://github.com/Cloudmorrow/quill-crm"
 ref = "v1.1.0"
 category = "business"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "cutmorrow"
@@ -144,6 +154,8 @@ repo = "https://github.com/Cloudmorrow/quill-cutmorrow"
 ref = "v3.1.0"
 category = "personal"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "media"
@@ -153,6 +165,8 @@ repo = "https://github.com/Cloudmorrow/quill-media"
 ref = "v1.0.0"
 category = "personal"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "devproject"
@@ -162,6 +176,8 @@ repo = "https://github.com/Cloudmorrow/quill-devproject"
 ref = "v1.1.0"
 category = "developer"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "cells"
@@ -171,6 +187,8 @@ repo = "https://github.com/Cloudmorrow/quill-cells"
 ref = "v2.2.0"
 category = "productivity"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
 
 [[quills]]
 id = "docs"
@@ -180,3 +198,5 @@ repo = "https://github.com/Cloudmorrow/quill-docs"
 ref = "v1.1.0"
 category = "productivity"
 publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
