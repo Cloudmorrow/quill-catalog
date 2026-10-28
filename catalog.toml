@@ -47,6 +47,11 @@ label = "Productivity"
 description = "The work of the day: tasks, the calendar, and sheets of numbers."
 
 [[categories]]
+id = "communication"
+label = "Communication"
+description = "Talking to each other: channels, and mail."
+
+[[categories]]
 id = "home"
 label = "Home"
 description = "The household: shopping, chores, the car, the plants."
@@ -119,7 +124,7 @@ name = "Channels"
 summary = "Channels, threads, mentions and reactions: a team's conversations, on your own server."
 repo = "https://github.com/Cloudmorrow/quill-channels"
 ref = "v1.0.3"
-category = "business"
+category = "communication"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
 standard = true
