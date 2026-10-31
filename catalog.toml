@@ -211,7 +211,7 @@ id = "mail"
 name = "Mail"
 summary = "Email: write to anybody on your server, give everybody an address on your own domain through Cloudflare, and read and send through your own Fastmail or JMAP account."
 repo = "https://github.com/Cloudmorrow/quill-mail"
-ref = "v2.3.0"
+ref = "v2.4.0"
 category = "communication"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
