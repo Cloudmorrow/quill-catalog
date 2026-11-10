@@ -219,8 +219,8 @@ standard = true
 
 [[quills]]
 id = "morrow"
-name = "Morrow"
-summary = "Your own assistant, on your own cloud: ask it about anything you can see here, and have it build Quills of your own. An administrator connects Claude once, for everybody."
+name = "Morrow AI"
+summary = "Your own AI assistant, on your own cloud: a chat with Morrow about anything you can see here, and Quills of your own built when you ask. An administrator connects Claude once, for everybody."
 repo = "https://github.com/Cloudmorrow/quill-morrow"
 ref = "v1.2.0"
 category = "personal"
