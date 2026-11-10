@@ -222,7 +222,7 @@ id = "morrow"
 name = "Morrow"
 summary = "Your own assistant, on your own cloud: ask it about anything you can see here, and have it build Quills of your own. An administrator connects Claude once, for everybody."
 repo = "https://github.com/Cloudmorrow/quill-morrow"
-ref = "v1.1.0"
+ref = "v1.2.0"
 category = "personal"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
