@@ -36,6 +36,320 @@ sha256 = "a9a50c5782ef5e45306d58d1a9a819015b472d8da30ab6a77f15f571c861a71b"
 size = 101894512
 programs = ["ffmpeg", "ffprobe"]
 
+# Dictionaries: the languages the spellchecker in the web app checks with
+# (Docs, Notes; docs/MANUAL.md, *Spelling*). Hunspell dictionaries, the ones
+# LibreOffice ships, pinned to one commit of its dictionaries repository. A
+# server fetches a language the first time somebody writes in it, refuses
+# a file whose SHA-256 differs, and keeps it under its own data folder;
+# nothing is installed on the system. Adding a language is a pull request
+# with the two files' hashes and sizes.
+
+[dictionaries.da]
+label = "Dansk"
+summary = "Danish"
+license = "GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1"
+homepage = "https://stavekontrolden.dk"
+
+[[dictionaries.da.files]]
+name = "da.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/da_DK/da_DK.aff"
+sha256 = "ee4fe193d19b72aa64bc0d2b9bcdf44ee44f11d9b4e7dcf6da36fd0e91528561"
+size = 82864
+
+[[dictionaries.da.files]]
+name = "da.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/da_DK/da_DK.dic"
+sha256 = "298aabeca362ee2c71836c5c7748d22080a460bd7193e6fbd2471f27a70d0fd3"
+size = 3894244
+
+[dictionaries.sv]
+label = "Svenska"
+summary = "Swedish"
+license = "LGPL-3.0-only"
+homepage = "https://extensions.libreoffice.org/en/extensions/show/swedish-spelling-dictionary-den-stora-svenska-ordlistan"
+
+[[dictionaries.sv.files]]
+name = "sv.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/sv_SE/dictionaries/sv_SE.aff"
+sha256 = "97fc1a3cd998f62ba48366ac13398b919a17e991cb69115fa60bb861093406b9"
+size = 18582
+
+[[dictionaries.sv.files]]
+name = "sv.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/sv_SE/dictionaries/sv_SE.dic"
+sha256 = "bd44b19cd8c061fb1d2504dc676adc3a68d41a866c99d10c8163fc396049fcad"
+size = 3938932
+
+[dictionaries.nb]
+label = "Norsk bokmål"
+summary = "Norwegian Bokmål"
+license = "GPL-2.0-only"
+homepage = "https://github.com/LibreOffice/dictionaries/tree/master/no"
+
+[[dictionaries.nb.files]]
+name = "nb.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/no/nb_NO.aff"
+sha256 = "b9e828538222b3580d8adb4660d5bae9bc1fbe42e7c21fd3e01970efed96b4f8"
+size = 17382
+
+[[dictionaries.nb.files]]
+name = "nb.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/no/nb_NO.dic"
+sha256 = "aadaf9ea6b437b4edada54a2084e1c8dc00029addc6dfb4e15637f8e798dacc1"
+size = 9336265
+
+[dictionaries.nn]
+label = "Norsk nynorsk"
+summary = "Norwegian Nynorsk"
+license = "GPL-2.0-only"
+homepage = "https://github.com/LibreOffice/dictionaries/tree/master/no"
+
+[[dictionaries.nn.files]]
+name = "nn.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/no/nn_NO.aff"
+sha256 = "454f0bf09e6581ca8e153c245a6136bec15e954f752d930ad32fedeb012ce5de"
+size = 13616
+
+[[dictionaries.nn.files]]
+name = "nn.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/no/nn_NO.dic"
+sha256 = "9173f6b9e943cea8e3a2097b7c1cd67e09a0839cb85dfaad9114d7fc2c313c81"
+size = 6467674
+
+[dictionaries.de]
+label = "Deutsch"
+summary = "German"
+license = "GPL-2.0-only OR GPL-3.0-only"
+homepage = "https://www.j3e.de/myspell/"
+
+[[dictionaries.de.files]]
+name = "de.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_DE_frami.aff"
+sha256 = "646bf3333ac69c23e9d794533ee5241d6f755c359e8fe10a648f87613743d594"
+size = 19067
+
+[[dictionaries.de.files]]
+name = "de.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_DE_frami.dic"
+sha256 = "4ca3c958b0e5545910999bc246f668840bf8ede3df8e5e6790d05edd5a586c38"
+size = 4356903
+
+[dictionaries.de-at]
+label = "Deutsch (Österreich)"
+summary = "German, Austria"
+license = "GPL-2.0-only OR GPL-3.0-only"
+homepage = "https://www.j3e.de/myspell/"
+
+[[dictionaries.de-at.files]]
+name = "de-at.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_AT_frami.aff"
+sha256 = "8b428f6215e36e145626e3d150cd0ffe273e1ad9a9ec0a1bbd31ee468ee39edc"
+size = 19068
+
+[[dictionaries.de-at.files]]
+name = "de-at.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_AT_frami.dic"
+sha256 = "d821e0a5a029b66df696c982a4cd55eb792139c33716ccbde364941db2448cbb"
+size = 4359309
+
+[dictionaries.de-ch]
+label = "Deutsch (Schweiz)"
+summary = "German, Switzerland"
+license = "GPL-2.0-only OR GPL-3.0-only"
+homepage = "https://www.j3e.de/myspell/"
+
+[[dictionaries.de-ch.files]]
+name = "de-ch.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_CH_frami.aff"
+sha256 = "d86884be4c3f07e5e08057884856feabf2872b4e2f90a587a11376082bc4126b"
+size = 19068
+
+[[dictionaries.de-ch.files]]
+name = "de-ch.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/de/de_CH_frami.dic"
+sha256 = "80a4df38cdc3e16d2f042f8eba4a99668ab9c075662e4262c62f8bba46c7bd16"
+size = 4358308
+
+[dictionaries.en-gb]
+label = "English (UK)"
+summary = "English, British"
+license = "LGPL-3.0-only"
+homepage = "https://github.com/marcoagpinto/aoo-mozilla-en-dict"
+
+[[dictionaries.en-gb.files]]
+name = "en-gb.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/en/en_GB.aff"
+sha256 = "0fd6ed120ef28957847d98ba5149b117e27116cf81b5aa36208453f6755a36fd"
+size = 44158
+
+[[dictionaries.en-gb.files]]
+name = "en-gb.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/en/en_GB.dic"
+sha256 = "04e90f34f5263bf26780e9c4a442e9ad16584e227af49ddd1b3b21b01df5b29c"
+size = 1230571
+
+[dictionaries.en-us]
+label = "English (US)"
+summary = "English, American"
+license = "BSD-like (SCOWL)"
+homepage = "http://wordlist.aspell.net/"
+
+[[dictionaries.en-us.files]]
+name = "en-us.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/en/en_US.aff"
+sha256 = "e746c882dd6f303c2c46e7452804b9201115a6942cfeb15f18f8edf774d2e24e"
+size = 3205
+
+[[dictionaries.en-us.files]]
+name = "en-us.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/en/en_US.dic"
+sha256 = "f0b1a234bd178bdd01875b2a392a9647f888b8fe879f79c52aae62c2759b3647"
+size = 551762
+
+[dictionaries.fr]
+label = "Français"
+summary = "French"
+license = "MPL-2.0"
+homepage = "https://grammalecte.net/home.php?prj=fr"
+
+[[dictionaries.fr.files]]
+name = "fr.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/fr_FR/dictionaries/fr.aff"
+sha256 = "c176610cd5dc4846806a65ddd029f422d87978bf58f224aa44222662a16a2de5"
+size = 199870
+
+[[dictionaries.fr.files]]
+name = "fr.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/fr_FR/dictionaries/fr.dic"
+sha256 = "b78a868e31dd6e373b6c3217969afb898a9acde828a5e7ef97308da42218c88c"
+size = 1236490
+
+[dictionaries.es]
+label = "Español"
+summary = "Spanish"
+license = "GPL-3.0-or-later OR LGPL-3.0-or-later OR MPL-1.1"
+homepage = "https://github.com/sbosio/rla-es"
+
+[[dictionaries.es.files]]
+name = "es.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/es/es_ES.aff"
+sha256 = "e73a9bf8e1383f4986a5dc9e2fbed49371c0c61f511c626d15586bd433c1cad9"
+size = 169202
+
+[[dictionaries.es.files]]
+name = "es.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/es/es_ES.dic"
+sha256 = "6975dddec3d5d2c676069537bc67b4b5f786c65c5d4cf6703a82acf779ac9ec1"
+size = 715989
+
+[dictionaries.it]
+label = "Italiano"
+summary = "Italian"
+license = "GPL-3.0-only"
+homepage = "https://github.com/LibreOffice/dictionaries/tree/master/it_IT"
+
+[[dictionaries.it.files]]
+name = "it.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/it_IT/it_IT.aff"
+sha256 = "951afaa19272f13555b8823e8bcf9ccf78f8fe1a07835bdfb912ab3e4d537c2b"
+size = 70054
+
+[[dictionaries.it.files]]
+name = "it.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/it_IT/it_IT.dic"
+sha256 = "bae1e3501dcd2a923669592493b3fde6c02aae7c7aab83bf5e5b49077e73dd64"
+size = 1295083
+
+[dictionaries.nl]
+label = "Nederlands"
+summary = "Dutch"
+license = "BSD-3-Clause OR CC-BY-3.0"
+homepage = "https://github.com/OpenTaal/opentaal-hunspell"
+
+[[dictionaries.nl.files]]
+name = "nl.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/nl_NL/nl_NL.aff"
+sha256 = "f0233d4f721f4661cf5f4d05ed2739549322bf3b6b66764b55a38257e1e16e6f"
+size = 46557
+
+[[dictionaries.nl.files]]
+name = "nl.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/nl_NL/nl_NL.dic"
+sha256 = "bc28af45307700a9927ad5719184da44dfd7eed4f707b8c1477f6d8a21b586a6"
+size = 2488246
+
+[dictionaries.pt-pt]
+label = "Português (Portugal)"
+summary = "Portuguese, Portugal"
+license = "GPL-2.0-or-later"
+homepage = "https://natura.di.uminho.pt/wiki/doku.php?id=dicionarios:main"
+
+[[dictionaries.pt-pt.files]]
+name = "pt-pt.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pt_PT/pt_PT.aff"
+sha256 = "975a209fcc892cb382fa5f34a28c391a39668661ce373ae071287809c5fcae24"
+size = 95089
+
+[[dictionaries.pt-pt.files]]
+name = "pt-pt.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pt_PT/pt_PT.dic"
+sha256 = "e29ba2d7aa8a2ad43e9cb46ac6473064b661545c87002aea90e18899d98d3cc9"
+size = 1485977
+
+[dictionaries.pt-br]
+label = "Português (Brasil)"
+summary = "Portuguese, Brazil"
+license = "LGPL-3.0-only OR MPL-1.1"
+homepage = "https://pt-br.libreoffice.org/projetos/vero/"
+
+[[dictionaries.pt-br.files]]
+name = "pt-br.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pt_BR/pt_BR.aff"
+sha256 = "21d8ad2a769a60e17e2b5ea4ef11d4d593a58b9e2a82d642ef82d6a4c5523865"
+size = 979792
+
+[[dictionaries.pt-br.files]]
+name = "pt-br.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pt_BR/pt_BR.dic"
+sha256 = "a38bfb26b68ece2834e79fe83e48d5792652970ace12db89d1b9674bf9933183"
+size = 4477695
+
+[dictionaries.pl]
+label = "Polski"
+summary = "Polish"
+license = "GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1 OR Apache-2.0 OR CC-BY-SA-1.0"
+homepage = "https://sjp.pl/sl/ort/"
+
+[[dictionaries.pl.files]]
+name = "pl.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pl_PL/pl_PL.aff"
+sha256 = "82973651651aa930335c865b339b98db376ca3dbf3a661b70b9eeb71fdf41dca"
+size = 257542
+
+[[dictionaries.pl.files]]
+name = "pl.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/pl_PL/pl_PL.dic"
+sha256 = "c0848440599eb88e5aca500418d5f389e562ec2c157b63dbe39d354658ffba49"
+size = 5252096
+
+[dictionaries.is]
+label = "Íslenska"
+summary = "Icelandic"
+license = "CC-BY-SA-3.0"
+homepage = "https://github.com/LibreOffice/dictionaries/tree/master/is"
+
+[[dictionaries.is.files]]
+name = "is.aff"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/is/is.aff"
+sha256 = "0168050c64a369c55b5aeb61f9dfe484d2aa7512d78bb3fa36779ea24b467c50"
+size = 309734
+
+[[dictionaries.is.files]]
+name = "is.dic"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/c0865a85eb67dc377f2cf8e8fe2c4fa9e53f0dcb/is/is.dic"
+sha256 = "8447594fd7eb1d6d43725c4ca49b00d3f00c4c4f3ac2f2b6dfe3f56eb211d280"
+size = 2454138
+
 [[categories]]
 id = "personal"
 label = "Personal"

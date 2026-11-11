@@ -93,6 +93,19 @@ asked gets at first boot; that flag and the categories are product
 decisions, and stay hand edits. Everything else is added from
 Administration once the server runs.
 
+## Dictionaries
+
+`[dictionaries]` pins the languages a server's spellchecker checks with
+(the web app's Docs and Notes; `docs/DOCS.md`, *Spelling*, in the
+Cloudmorrow repository): Hunspell dictionaries, the ones LibreOffice ships,
+each as its `.aff` and `.dic` by URL at one commit of LibreOffice's
+dictionaries repository, with the SHA-256 and size of each file. A server
+fetches a language the first time somebody writes in it, refuses a file
+whose hash differs, and keeps it under its own data folder; nothing is
+installed on the system. A new language, or a newer release of one, is a
+pull request with the two files' hashes and sizes and the licence the
+dictionary states.
+
 ## Categories
 
 `personal`, `home`, `business`, `developer`. A new category is a pull request
