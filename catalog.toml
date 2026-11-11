@@ -468,7 +468,7 @@ standard = true
 [[quills]]
 id = "cutmorrow"
 name = "CutMorrow"
-summary = "A video editor for the videos in your drive: cut, trim and arrange clips on video and audio tracks, blur what should not be seen, crop, and export."
+summary = "A video editor for the videos and photos in your drive: drag clips and photos onto video and audio tracks, cut, trim and arrange them, put one small over another, blur what should not be seen, crop, and export."
 repo = "https://github.com/Cloudmorrow/quill-cutmorrow"
 ref = "v3.1.0"
 category = "personal"
