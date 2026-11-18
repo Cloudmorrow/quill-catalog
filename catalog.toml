@@ -554,7 +554,7 @@ standard = true
 [[quills]]
 id = "messages"
 name = "Messages"
-summary = "Conversations with the people on your cloud, one to one or in a group, with reactions: your messages, kept on your own cloud."
+summary = "Conversations with the people on your cloud, with one person or several, with reactions: your messages, kept on your own cloud."
 repo = "https://github.com/Cloudmorrow/quill-messages"
 ref = "v1.1.0"
 category = "personal"
