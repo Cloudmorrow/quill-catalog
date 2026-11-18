@@ -424,7 +424,7 @@ id = "calendar"
 name = "Calendar"
 summary = "Your own calendar, the ones you share, and one for everybody."
 repo = "https://github.com/Cloudmorrow/quill-calendar"
-ref = "v1.2.0"
+ref = "v1.4.0"
 category = "productivity"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
