@@ -363,7 +363,12 @@ description = "The work of the day: tasks, the calendar, and sheets of numbers."
 [[categories]]
 id = "communication"
 label = "Communication"
-description = "Talking to each other: channels, and mail."
+description = "Talking to each other: channels, messages, and mail."
+
+[[categories]]
+id = "creative"
+label = "Creative"
+description = "Pictures and video: the gallery, the cutting room, the darkroom."
 
 [[categories]]
 id = "home"
@@ -480,7 +485,7 @@ name = "CutMorrow"
 summary = "A video editor for the videos and photos in your drive: drag clips and photos onto video and audio tracks, cut, trim and arrange them, put one small over another, blur what should not be seen, crop, and export."
 repo = "https://github.com/Cloudmorrow/quill-cutmorrow"
 ref = "v3.2.0"
-category = "personal"
+category = "creative"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
 standard = true
@@ -491,7 +496,7 @@ name = "Media"
 summary = "Every photo and video in your drive, as pictures: filter them and give them stars."
 repo = "https://github.com/Cloudmorrow/quill-media"
 ref = "v1.2.1"
-category = "personal"
+category = "creative"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
 standard = true
@@ -557,7 +562,7 @@ name = "Messages"
 summary = "Conversations with the people on your cloud, with one person or several, with reactions: your messages, kept on your own cloud."
 repo = "https://github.com/Cloudmorrow/quill-messages"
 ref = "v1.1.0"
-category = "personal"
+category = "communication"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
 standard = true

@@ -108,5 +108,6 @@ dictionary states.
 
 ## Categories
 
-`personal`, `home`, `business`, `developer`. A new category is a pull request
-too, with a line on why the others do not fit.
+`personal`, `productivity`, `communication`, `creative`, `home`, `business`,
+`developer`, in the order they are shelved. A new category is a pull request too,
+with a line on why the others do not fit.
