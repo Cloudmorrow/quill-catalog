@@ -444,6 +444,15 @@ publisher = "Cloudmorrow"
 standard = true
 
 [[quills]]
+id = "slack"
+name = "Slack bridge"
+summary = "Channels and Slack as one conversation: what is said in a linked channel is said in the other, threads and all."
+repo = "https://github.com/Cloudmorrow/quill-slack"
+ref = "v1.0.0"
+category = "communication"
+publisher = "Cloudmorrow"
+
+[[quills]]
 id = "secrets"
 name = "Secrets"
 summary = "Keys and passwords in vaults and environments, sealed, and never shown until you ask."
