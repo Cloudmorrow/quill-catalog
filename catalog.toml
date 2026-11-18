@@ -495,7 +495,7 @@ id = "retouch"
 name = "Retouch"
 summary = "A basic photo editor for the photos in your drive: crop, turn, resize, write on them, and save a new file."
 repo = "https://github.com/Cloudmorrow/quill-retouch"
-ref = "v1.0.0"
+ref = "v2.0.1"
 category = "creative"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
