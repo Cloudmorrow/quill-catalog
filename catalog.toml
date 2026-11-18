@@ -491,6 +491,17 @@ publisher = "Cloudmorrow"
 standard = true
 
 [[quills]]
+id = "retouch"
+name = "Retouch"
+summary = "A basic photo editor for the photos in your drive: crop, turn, resize, write on them, and save a new file."
+repo = "https://github.com/Cloudmorrow/quill-retouch"
+ref = "v1.0.0"
+category = "creative"
+publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
+
+[[quills]]
 id = "media"
 name = "Media"
 summary = "Every photo and video in your drive, as pictures: filter them and give them stars."
