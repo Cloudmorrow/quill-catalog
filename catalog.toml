@@ -484,7 +484,7 @@ id = "clipper"
 name = "Clipper"
 summary = "A video editor for the videos and photos in your drive: drag clips and photos onto video and audio tracks, cut, trim and arrange them, put one small over another, blur what should not be seen, crop, and export."
 repo = "https://github.com/Cloudmorrow/quill-clipper"
-ref = "v4.0.0"
+ref = "v4.1.0"
 category = "creative"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
