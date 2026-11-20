@@ -582,3 +582,14 @@ category = "communication"
 publisher = "Cloudmorrow"
 # Offered by the installer and the setup page.
 standard = true
+
+[[quills]]
+id = "chess"
+name = "Chess"
+summary = "Chess against the people on your cloud, or against Morrow, who gets better each time you beat him — with no limit, 10 minutes or 5 minutes on the clock."
+repo = "https://github.com/Cloudmorrow/quill-chess"
+ref = "v1.0.0"
+category = "games"
+publisher = "Cloudmorrow"
+# Offered by the installer and the setup page.
+standard = true
