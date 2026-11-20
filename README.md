@@ -108,6 +108,6 @@ dictionary states.
 
 ## Categories
 
-`personal`, `productivity`, `communication`, `creative`, `home`, `business`,
-`developer`, in the order they are shelved. A new category is a pull request too,
+`personal`, `productivity`, `communication`, `creative`, `games`, `home`,
+`business`, `developer`, in the order they are shelved. A new category is a pull request too,
 with a line on why the others do not fit.
