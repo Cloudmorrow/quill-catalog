@@ -371,6 +371,11 @@ label = "Creative"
 description = "Pictures and video: the gallery, the cutting room, the darkroom."
 
 [[categories]]
+id = "games"
+label = "Games"
+description = "Something to play: chess against each other, or the computer."
+
+[[categories]]
 id = "home"
 label = "Home"
 description = "The household: shopping, chores, the car, the plants."
